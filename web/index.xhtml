@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Listagem de Pessoas</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:commandButton value="Novo"
+                             action="#{controlePessoa.novo()}"/>
+            <h:dataTable value="#{controlePessoa.dao.listaPessoas}"
+                         var="obj">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    <h:outputLabel value="#{obj.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nome</f:facet>
+                    <h:outputLabel value="#{obj.nome}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Endereco</f:facet>
+                    <h:outputLabel value="#{obj.endereco}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cep Destino</f:facet>
+                    <h:outputLabel value="#{obj.cepDestino}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cep Origem</f:facet>
+                    <h:outputLabel value="#{obj.cepOrigem}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Valor de Compra</f:facet>
+                    <h:outputLabel value="#{obj.valorCompra}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Prazo de entrega</f:facet>
+                    <h:outputLabel value="#{obj.prazoEntrega}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Valor Frete</f:facet>
+                    <h:outputLabel value="#{obj.valorFrete}"/>
+                </h:column>
+                
+                <h:column>
+                    <h:commandLink value="Alterar"
+                                   action="#{controlePessoa.alterar(obj)}"/>
+                </h:column>
+                <h:column>
+                    <h:commandLink value="Excluir"
+                                   action="#{controlePessoa.remover(obj.id)}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        
+        
+        
+        
+    </h:body>
+</html>
+
